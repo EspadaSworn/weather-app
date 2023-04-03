@@ -10,33 +10,39 @@
 //  details.append('Temp'+ weather.main.temp+ 'F');
 
 //for current weather
-var search = document.getElementById('search');
-search.addEventListener('keydown', function(event) {
-  if (event.key==="Enter"){
+//var search = document.getElementByClassName('search');
+var input = document.getElementById('search-bar');
+input.addEventListener('keydown', function (event) {
+  if (event.key === "Enter") {
     event.preventDefault();
+    console.log(input.value);
+    getData(input.value);
+    //('current-date').temp.textContent = weather.main.speed;
   }
 });
 
-function getData(query){
-fetch('https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${511c4376976a27f45a735b245d107187}')
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
- //   renderResponse(data);
-  });
 
-//for forecast
-fetch('https://api.openweathermap.org/data/2.5/weather?appid=${511c4376976a27f45a735b245d107187}&q=${city}&units=imperial')
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
- //   renderResponse(data);
-    console.log('test')
-  });
+
+function getData(query) {
+  fetch('https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${511c4376976a27f45a735b245d107187}')
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      //   renderResponse(data);
+    });
+
+  //for forecast
+  fetch('https://api.openweathermap.org/data/2.5/weather?appid=${511c4376976a27f45a735b245d107187}&q=${city}&units=imperial')
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      //   renderResponse(data);
+      console.log(input)
+    });
 }//}
 //Hint: The forecast data is every 3 hours for 5 days, so you will have a list of 40 forecasts. Your requirement is to give 5 days of forecast data.
 // How can you make a for loop that will "jump over" indexes that you aren't interested in?
