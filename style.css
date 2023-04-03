@@ -1,0 +1,25 @@
+header {
+  background-color: darkblue;
+  color: white;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.current-date {
+  border-style: solid;
+}
+
+#future-date{
+  display: flex;
+  flex-wrap: wrap; 
+}
+
+#future-date > * {
+  border-style: solid;
+  margin-left: 4px;
+  color: white;
+  background: darkblue;
+}
